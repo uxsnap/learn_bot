@@ -4,7 +4,13 @@ const { parse } = require('node-html-parser');
 
 const { getRandomArrElement, rand } = require('./helpers'); 
 const { SCP_ITEMS } = require('./consts'); 
-const { BITCOIN_LINK, LEARN_JS_LINK, SCP_LINK, HABR_JS_INTERVIEW_QUESTIONS } = require('./links');
+const { 
+  BITCOIN_LINK, 
+  LEARN_JS_LINK, 
+  SCP_LINK, 
+  HABR_JS_INTERVIEW_QUESTIONS, 
+  REFACTORING_GURU 
+} = require('./links');
 
 function getBitcoinChangeWeek() {
   return axios
@@ -38,10 +44,18 @@ function getRandomJsQuestion() {
     `*Here's your random js interview question from habr*:\n${HABR_JS_INTERVIEW_QUESTIONS}/#${rand(70)}`)
 }
 
+function getRandomPatternGuru() {
+  const data = fs.readFileSync('guruRefactor.json', 'utf8');
+  return new Promise((res, rej) => data ? res(
+    `Here's your link: ${REFACTORING_GURU + getRandomArrElement(JSON.parse(data))}`
+  ) : rej("Cannot obtain links"))
+}
+
 
 module.exports = { 
   bitcoin: getBitcoinChangeWeek,
   learnJs: getLearnJsRandomChapter,
   scp: getRandomScpObject,
-  jsQ: getRandomJsQuestion
+  jsQ: getRandomJsQuestion,
+  patternGuru: getRandomPatternGuru
 };

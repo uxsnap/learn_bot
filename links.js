@@ -3,5 +3,6 @@ module.exports = {
   LEARN_JS_LINK: 'https://learn.javascript.ru',
   SCP_LINK: 'http://www.scpwiki.com/scp-',
   HABR_JS_INTERVIEW_QUESTIONS: 'https://habr.com/ru/post/486820', 
-  HABR_JS_INTERVIEW_TASKS: 'https://habr.com/ru/post/351874'
+  HABR_JS_INTERVIEW_TASKS: 'https://habr.com/ru/post/351874',
+  REFACTORING_GURU: 'https://refactoring.guru'
 }
