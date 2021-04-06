@@ -26,6 +26,8 @@ bot.on('callback_query', (cb) => {
     message_id: msg.message_id,
   };
 
+  if (opts.message_id === process.env.MY_MESSAGE_ID) return; 
+
   mainFuncs[tasksResolvers[action]]()
     .then((res) => bot.sendMessage(opts.chat_id, res, { parse_mode: 'markdown'}));
 });
